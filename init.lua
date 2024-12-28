@@ -6,5 +6,3 @@ require('config.telescope')
 require('config.treesitter')
 require('config.tree')
 require('config.colorscheme')
-
-require('move_lines').setup()
