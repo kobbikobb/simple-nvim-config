@@ -1,8 +1,14 @@
--- Move selected lines down (Ctrl+J)
-vim.api.nvim_set_keymap('n', '<C-J>', ':m .+1<CR>==', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<C-J>', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+local M = {}
 
--- Move selected lines up (Ctrl+K)
-vim.api.nvim_set_keymap('n', '<C-K>', ':m .-2<CR>==', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<C-K>', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+function M.setup(opts)
+    opts = opts or {}
+    -- Define default keys
+    local move_down = opts.move_down or '<C-J>'
+    local move_up = opts.move_up or '<C-K>'
 
+    -- Set visual mode mappings with user overrides
+    vim.api.nvim_set_keymap('v', move_down, ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap('v', move_up, ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+end
+
+return M
