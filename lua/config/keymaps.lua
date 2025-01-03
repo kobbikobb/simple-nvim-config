@@ -8,8 +8,8 @@ vim.keymap.set('n', '<leader>nf', ':NvimTreeFocus<CR>', { noremap = true, silent
 vim.keymap.set('n', '<leader>nff', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>nc', ':NvimTreeCollapse<CR>', { noremap = true, silent = true })
 
--- Coc mapping for Enter key
-vim.api.nvim_set_keymap("i", "<CR>", [[pumvisible() ? coc#_select_confirm() : "\<CR>"]], { expr = true, noremap = true, silent = true })
+-- Coc mapping
+vim.api.nvim_set_keymap("i", "<Tab>", [[pumvisible() ? coc#_select_confirm() : "\<CR>"]], { expr = true, noremap = true, silent = true })
 
 -- Telescope maps 
 local builtin = require('telescope.builtin')
