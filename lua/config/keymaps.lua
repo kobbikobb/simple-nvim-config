@@ -18,3 +18,31 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live gr
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
+-- Comment out and in
+vim.api.nvim_set_keymap('v', '<leader>/', ':<C-u>lua ToggleComment()<CR>', { noremap = true, silent = true })
+
+function ToggleComment()
+    local start_line = vim.fn.line("'<")
+    local end_line = vim.fn.line("'>")
+
+    local lines = vim.fn.getline(start_line, end_line)
+    local all_commented = true
+
+    for _, line in ipairs(lines) do
+        if not line:match("^%s*//") then
+            all_commented = false
+            break
+        end
+    end
+
+    for i, line in ipairs(lines) do
+        if all_commented then
+            lines[i] = line:gsub("^%s*//%s?", "")
+        else
+            lines[i] = "// " .. line
+        end
+    end
+
+    vim.fn.setline(start_line, lines)
+end
+
