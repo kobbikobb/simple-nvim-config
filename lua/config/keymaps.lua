@@ -9,7 +9,7 @@ vim.keymap.set('n', '<leader>nff', ':NvimTreeFindFile<CR>', { noremap = true, si
 vim.keymap.set('n', '<leader>nc', ':NvimTreeCollapse<CR>', { noremap = true, silent = true })
 
 -- Coc mapping
-vim.api.nvim_set_keymap("i", "<Tab>", [[pumvisible() ? coc#_select_confirm() : "\<CR>"]], { expr = true, noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<Enter>", [[pumvisible() ? coc#_select_confirm() : "\<CR>"]], { expr = true, noremap = true, silent = true })
 
 -- Telescope maps 
 local builtin = require('telescope.builtin')
