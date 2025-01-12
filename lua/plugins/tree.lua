@@ -11,6 +11,10 @@ return {
             filters = {
                 custom = {'.git', 'node_modules', '__pycache__', '.idea', '.vscode'},
             },
+            update_focused_file = {
+                enable = true,
+                update_cwd = true
+            }
         }
     end
 }
