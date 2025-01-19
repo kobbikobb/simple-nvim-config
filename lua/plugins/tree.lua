@@ -9,7 +9,7 @@ return {
     config = function()
         require'nvim-tree'.setup {
             filters = {
-                custom = {'.git', 'node_modules', '__pycache__', '.idea', '.vscode'},
+                custom = {'node_modules', '__pycache__', '.idea', '.vscode'},
             },
             update_focused_file = {
                 enable = true,
