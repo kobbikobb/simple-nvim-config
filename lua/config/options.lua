@@ -8,3 +8,5 @@ vim.g.maplocalleader = "\\"
 
 vim.wo.number = true
 vim.opt.termguicolors = true
+
+vim.opt.backupcopy = "yes"
