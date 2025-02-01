@@ -1,3 +1,7 @@
+-- Common
+-- Map <Leader><Tab> to switch to the last opened file
+vim.api.nvim_set_keymap('n', '<Leader><Tab>', ':b#<CR>', { noremap = true, silent = true })
+
 -- Disable netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -17,6 +21,11 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find f
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+
+-- Prettier
+vim.api.nvim_set_keymap("v", "<leader>p", "<Plug>(coc-format-selected)", { silent = true })
+vim.api.nvim_set_keymap("n", "<leader>p", "<Plug>(coc-format-selected)", { silent = true })
+vim.api.nvim_set_keymap("n", "<leader>P", "<cmd>CocCommand editor.action.formatDocument<CR>", { noremap = true, silent = true })
 
 -- Comment out and in
 vim.api.nvim_set_keymap('v', '<leader>/', ':<C-u>lua ToggleComment()<CR>', { noremap = true, silent = true })
